@@ -1,0 +1,14 @@
+<html>
+	<title></title>
+
+	<body>
+		<div>
+			<a href="{% url 'accounts:profile' %}"> Profile </a> &nbsp;
+			<a href="{% url 'restaurants:list_restaurants' %}"> View Restaurants </a> &nbsp;
+			<a href="{% url 'restaurants:add_restaurant' %}"> Add Restaurant </a> &nbsp;
+			<a href="{% url 'restaurants:list_restaurants' %}"> Update Restaurant </a> &nbsp;
+		</div>
+		{% block content %} {% endblock %}
+	</body>
+
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for rest in restaurants %}
+
+{{ rest.name }}
+
+{% empty %}
+
+No restaurants found.
+
+{% endfor %}
+
+{% endblock %}
