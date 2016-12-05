@@ -3,10 +3,14 @@
 
 	<body>
 		<div>
+			<a href="{% url 'home_page' %}"> Home </a> &nbsp;
 			<a href="{% url 'accounts:profile' %}"> Profile </a> &nbsp;
 			<a href="{% url 'restaurants:list_restaurants' %}"> View Restaurants </a> &nbsp;
 			<a href="{% url 'restaurants:add_restaurant' %}"> Add Restaurant </a> &nbsp;
 			<a href="{% url 'restaurants:list_restaurants' %}"> Update Restaurant </a> &nbsp;
+			<a href="{% url 'accounts:register' %}"> Register </a> &nbsp;
+			{% if request.user.is_authenticated %}<a href="{% url 'accounts:logout' %}"> Logout </a> &nbsp;{% endif %}
+			{% if not request.user.is_authenticated %}<a href="{% url 'accounts:login' %}"> Log in </a> &nbsp;{% endif %}
 		</div>
 		{% block content %} {% endblock %}
 	</body>

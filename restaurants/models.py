@@ -5,17 +5,11 @@ from django.contrib.auth.models import User
 
 class Restaurant(models.Model):
 	name = models.CharField(max_length=150, blank=False)
-	location = models.OneToOneField('Location', blank=False)
-
-class Location(models.Model):
-	street = models.CharField(max_length=100, blank=True)
-	city = models.CharField(max_length=50, blank=False)
-	state = models.CharField(max_length=50, blank=False)
-	country = models.CharField(max_length=60, blank=False)
-
-class UserProfile(models.Model):
-	user = models.OneToOneField(User, related_name='userprofile_user')
-	bio = models.TextField(max_length=250, blank=True)
+	description = models.CharField(max_length=250, blank=True)
+	street = models.CharField(max_length=100, blank=False, default='Unknown')
+	city = models.CharField(max_length=50, blank=False, default='Unknown')
+	state = models.CharField(max_length=50, blank=False, default='Unknown')
+	country = models.CharField(max_length=60, blank=False, default='Unknown')
 
 class Review(models.Model):
 	restaurant = models.OneToOneField('Restaurant', related_name='review_restaurant')

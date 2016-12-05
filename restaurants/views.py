@@ -10,6 +10,6 @@ class ListRestaurants(ListView):
 
 class AddRestaurant(CreateView):
 	model = Restaurant
-	fields = ('name', 'country', 'state', 'city', 'street',)
+	fields = ('name', 'description','country', 'state', 'city', 'street',)
 	template_name = 'restaurants/add_restaurant.html'
 	success_url = reverse_lazy('restaurants:list_restaurants')

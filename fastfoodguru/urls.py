@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.http import HttpResponseRedirect
+from .views import home
 
 urlpatterns = [
-    url(r'^$', lambda u: HttpResponseRedirect('accounts/')),
+    url(r'^$', home, name='home_page'),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^restaurants/', include('restaurants.urls')),

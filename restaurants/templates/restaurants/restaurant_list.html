@@ -2,9 +2,9 @@
 
 {% block content %}
 
-{% for rest in restaurants %}
+{% for rest in restaurant_list %}
 
-{{ rest.name }}
+{{ forloop.counter }}. {{ rest.name }}
 
 {% empty %}
 
