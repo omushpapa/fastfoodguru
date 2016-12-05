@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="" method="post">
+	{% for message in messages %}
+		{{ message }}
+	{% endfor %}
+
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Register" />
+</form>
+
+{% endblock %}
