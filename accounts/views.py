@@ -33,8 +33,11 @@ def register(request):
 		
 		messages.error(request, 'Registration failed! Check listed errors.')
 
+	else:
+		form = UserRegistrationForm()
 
-	return render(request, 'accounts/register.html',{'form': UserRegistrationForm(), })
+
+	return render(request, 'accounts/register.html',{'form': form, })
 
 def logout_user(request):
 	logout(request)
@@ -63,4 +66,7 @@ def login_user(request):
 
 		messages.error(request, 'Login failed! Username/password invalid.')
 
-	return render(request, 'accounts/login.html', {'form': LoginForm(), })
+	else:
+		form = LoginForm()
+
+	return render(request, 'accounts/login.html', {'form': form, })
