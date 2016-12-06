@@ -46,6 +46,7 @@ def logout_user(request):
 	return HttpResponseRedirect(reverse('home_page'))
 
 def login_user(request):
+	next_page = request.GET['next']
 	if request.user.is_authenticated():
 		return HttpResponseRedirect(reverse('home_page'))
 
@@ -61,7 +62,9 @@ def login_user(request):
 
 					success_message = 'Welcome, %s.' % form.cleaned_data.get('username').title()
 					messages.success(request, success_message)
-
+					if next_page:
+						return HttpResponseRedirect(next_page)
+						
 					return HttpResponseRedirect(reverse('home_page'))
 
 		messages.error(request, 'Login failed! Username/password invalid.')
