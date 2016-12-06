@@ -2,14 +2,16 @@
 
 {% block content %}
 
+<ol>
 {% for rest in restaurant_list %}
 
-{{ forloop.counter }}. {{ rest.name }}
+<li><p>{{ rest.name }} &nbsp;<a href="{% url 'restaurants:update_restaurant' rest.id %}">update</a></p></li>
 
 {% empty %}
 
 No restaurants found.
 
 {% endfor %}
+</ol>
 
 {% endblock %}
